@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>javascript Simple ID Check練習</title>
+  </head>
+  <body>
+    請輸入身分證號碼 <input id='idnumber'>
+    <input type="button" value='檢查' onclick='check()' >
+    <div id="msg"></div>
+    <script type='text/javascript'>
+      function check(){
+        /* 取得idnumber的值 並印出來或alert出來*/
+        var value = document.getElementById('idnumber').value;
+        console.log(value);
+        /* 判斷 第一個字是不是字母 在msg div印出正確或錯誤訊息 */
+        
+        //var english = /[A-Za-z]/g;
+        //console.log(english.test(value[0]));
+        //var r = value.match(/[A-Za-z]/);
+        //console.log(r);
+
+        if(value[0].match(/[A-Za-z]/)){
+           console.log("第一個字是字母");
+        }else{
+           console.log("第一個字不是字母");
+
+        }
+
+        //RegExp
+        /* 判斷 第二個字是不是1或2 在msg div印出正確或錯誤訊息 */
+        if(value[1].match(/[1-2]/)){
+           console.log("第二個字是1或2");
+        }else{
+           console.log("第二個字不是1或2");
+
+        }
+        /* 判斷 長度是不是有10個 在msg div印出正確或錯誤訊息*/
+        if(value.length === 10){
+           console.log("長度有10個");
+        }else{
+           console.log("長度沒有10個");
+
+        }
+
+        /* 回家練習: 參考編號規則寫出真正的檢查器
+        http://zh.wikipedia.org/wiki/中華民國國民身分證#.E7.B7.A8.E8.99.9F.E8.A6.8F.E5.89.87
+           1. 轉換第一個字母 為對應數字
+           2. 依序乘上 1 9 8 7 6 5 4 3 2 1 1 並且相加
+           3. 除 10 為 0 則顯示有效
+        */
+      }
+    </script>
+  </body>
+</html>
